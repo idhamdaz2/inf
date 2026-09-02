@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKPD Interaktif: Stack & Queue (Kelompok)</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #2563eb;
+            --secondary: #0f766e;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border: #cbd5e1;
+            --accent: #d97706;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header h2 {
+            color: var(--secondary);
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .badge {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        /* Instructions */
+        .instructions {
+            background-color: #f0fdf4;
+            border-left: 5px solid #16a34a;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 13.5px;
+        }
+
+        .instructions h3 {
+            color: #15803d;
+            margin-bottom: 6px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+        }
+
+        /* Section Boxes */
+        .section-box {
+            margin-bottom: 30px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 22px;
+            position: relative;
+        }
+
+        .section-title {
+            background-color: var(--primary);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Form Controls */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .form-group input, .form-group textarea {
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 13.5px;
+            background-color: #fff;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Material Table */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0;
+            font-size: 13px;
+        }
+
+        .info-table th, .info-table td {
+            border: 1px solid var(--border);
+            padding: 9px 12px;
+            text-align: left;
+        }
+
+        .info-table th {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Questions & Cases */
+        .question-card {
+            background-color: #fafafa;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .question-header {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 13.5px;
+        }
+
+        .simulation-box {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary-light);
+            padding: 10px 14px;
+            font-family: monospace;
+            font-size: 13px;
+            margin: 8px 0 12px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Tracing Table */
+        .trace-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 12.5px;
+        }
+
+        .trace-table th, .trace-table td {
+            border: 1px solid var(--border);
+            padding: 8px;
+            text-align: center;
+        }
+
+        .trace-table th {
+            background: #e2e8f0;
+            font-weight: 600;
+        }
+
+        .trace-table input {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Action Buttons */
+        .action-bar {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed var(--border);
+        }
+
+        .btn {
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: #0d9488;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* CSS Print Formatting for PDF Export */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                color: #000;
+            }
+            .container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+            .no-print, .action-bar {
+                display: none !important;
+            }
+            .section-box {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+                border: 1px solid #94a3b8;
+            }
+            input, textarea {
+                border: none !important;
+                border-bottom: 1px solid #64748b !important;
+                border-radius: 0 !important;
+                background: transparent !important;
+                resize: none;
+            }
+            .trace-table input {
+                border-bottom: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>LEMBAR KERJA PESERTA DIDIK (LKPD) INTERAKTIF</h1>
+        <h2>TOPIK: STRUKTUR DATA STACK & QUEUE</h2>
+        <div class="meta-info">
+            <span class="badge">Tugas Berkelompok (1 Kelompok = 2 Orang)</span>
+            <span>Mata Pelajaran: Informatika</span>
+            <span>Kelas / Sem: X / Genap</span>
+        </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions no-print">
+        <h3>?? Petunjuk Pengerjaan:</h3>
+        <ul>
+            <li>Kerjakan lembar kerja ini secara **berpasangan (2 orang)** menggunakan 1 komputer/laptop.</li>
+            <li>Diskusikan setiap pertanyaan dan jalankan simulasi tracing bersama pasangan kelompok Anda.</li>
+            <li>Isi identitas diri dan jawaban langsung pada kolom yang telah disediakan di halaman web ini.</li>
+            <li>Setelah semua pertanyaan terisi, klik tombol **"?? Download Hasil Pekerjaan (PDF)"** di bagian bawah halaman.</li>
+        </ul>
+    </div>
+
+    <!-- Identitas Kelompok -->
+    <div class="section-box">
+        <div class="section-title">BAGIAN I: IDENTITAS KELOMPOK</div>
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Nama Kelompok / Nomor Kelompok:</label>
+                <input type="text" id="kelompok" placeholder="Contoh: Kelompok 04">
+            </div>
+            <div class="form-group">
+                <label>Kelas / Rombel:</label>
+                <input type="text" id="kelas" placeholder="Contoh: X RPL 1">
+            </div>
+        </div>
+        <div class="grid-2">
+            <div class="form-group">
+                <label>Anggota 1 (Ketua / Driver):</label>
+                <input type="text" id="anggota1" placeholder="Nama Lengkap & No. Absen">
+            </div>
+            <div class="form-group">
+                <label>Anggota 2 (Anggota / Navigator):</label>
+                <input type="text" id="anggota2" placeholder="Nama Lengkap & No. Absen">
+            </div>
+        </div>
+    </div>
+
+    <!-- Ringkasan Materi -->
+    <div class="section-box">
+        <div class="section-title">BAGIAN II: RINGKASAN KONSEP DASAR</div>
+        <p style="font-size: 13.5px; margin-bottom: 10px;">
+            Struktur data linear mengatur elemen data secara berurutan. Dua model utama yang sering digunakan adalah <strong>Stack (Tumpukan)</strong> dan <strong>Queue (Antrean)</strong>.
+        </p>
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>Karakteristik</th>
+                    <th>Stack (Tumpukan)</th>
+                    <th>Queue (Antrean)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Prinsip Utama</strong></td>
+                    <td><strong>LIFO</strong> (Last In, First Out) - Yang terakhir masuk, pertama keluar.</td>
+                    <td><strong>FIFO</strong> (First In, First Out) - Yang pertama masuk, pertama keluar.</td>
+                </tr>
+                <tr>
+                    <td><strong>Operasi Tambah Data</strong></td>
+                    <td><code>Push()</code> - Menambahkan elemen di bagian atas (Top).</td>
+                    <td><code>Enqueue()</code> - Menambahkan elemen di belakang (Rear).</td>
+                </tr>
+                <tr>
+                    <td><strong>Operasi Hapus Data</strong></td>
+                    <td><code>Pop()</code> - Mengambil/menghapus elemen paling atas (Top).</td>
+                    <td><code>Dequeue()</code> - Mengambil/menghapus elemen paling depan (Front).</td>
+                </tr>
+                <tr>
+                    <td><strong>Analogi Dunia Nyata</strong></td>
+                    <td>Tumpukan piring, tumpukan buku, fitur <i>Undo/Redo</i>.</td>
+                    <td>Antrean tiket bioskop, antrean cetak dokumen di printer.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Aktivitas 1: Stack Simulation -->
+    <div class="section-box">
+        <div class="section-title">BAGIAN III: SIMULASI & TRACING STACK (LIFO)</div>
+        
+        <div class="question-card">
+            <div class="question-header">Soal 1.1: Pemahaman Konsep Stack</div>
+            <div class="form-group">
+                <label>Jelaskan dengan bahasa kelompok Anda mengapa Stack menerapkan prinsip LIFO, serta berikan 2 contoh konkret penggunaannya dalam perangkat lunak!</label>
+                <textarea id="ans_stack_1" placeholder="Tuliskan hasil diskusi kelompok Anda di sini..."></textarea>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-header">Soal 1.2: Tracing Operasi Stack</div>
+            <p style="font-size: 13px;">Sebuah Stack kosong diberi urutan perintah berikut:</p>
+            <div class="simulation-box">
+                1. Push("A") &nbsp;&nbsp; 2. Push("B") &nbsp;&nbsp; 3. Push("C") &nbsp;&nbsp; 4. Pop() &nbsp;&nbsp; 5. Push("D") &nbsp;&nbsp; 6. Pop()
+            </div>
+            <p style="font-size: 13px; margin-bottom: 8px;">Lengkapi tabel tracing berikut sesuai langkah di atas:</p>
+            
+            <table class="trace-table">
+                <thead>
+                    <tr>
+                        <th>Langkah</th>
+                        <th>Operasi</th>
+                        <th>Isi Stack Saat Ini (Dasar &rarr; Atas)</th>
+                        <th>Elemen Ter-Pop (Jika Ada)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Push("A")</td><td><input type="text" placeholder="[A]"></td><td><input type="text" placeholder="-"></td></tr>
+                    <tr><td>2</td><td>Push("B")</td><td><input type="text" placeholder="[A, B]"></td><td><input type="text" placeholder="-"></td></tr>
+                    <tr><td>3</td><td>Push("C")</td><td><input type="text" placeholder="[A, B, C]"></td><td><input type="text" placeholder="-"></td></tr>
+                    <tr><td>4</td><td>Pop()</td><td><input type="text" placeholder="..."></td><td><input type="text" placeholder="..."></td></tr>
+                    <tr><td>5</td><td>Push("D")</td><td><input type="text" placeholder="..."></td><td><input type="text" placeholder="..."></td></tr>
+                    <tr><td>6</td><td>Pop()</td><td><input type="text" placeholder="..."></td><td><input type="text" placeholder="..."></td></tr>
+                </tbody>
+            </table>
+            
+            <div class="form-group" style="margin-top: 10px;">
+                <label>Kesimpulan Akhir Stack: Apa saja elemen yang tersisa di dalam Stack setelah langkah 6?</label>
+                <input type="text" id="ans_stack_final" placeholder="Jawaban elemen sisa...">
+            </div>
+        </div>
+    </div>
+
+    <!-- Aktivitas 2: Queue Simulation -->
+    <div class="section-box">
+        <div class="section-title">BAGIAN IV: SIMULASI & TRACING QUEUE (FIFO)</div>
+        
+        <div class="question-card">
+            <div class="question-header">Soal 2.1: Pemahaman Konsep Queue</div>
+            <div class="form-group">
+                <label>Jelaskan perbedaan utama mekanisme Dequeue pada Queue dibandingkan dengan Pop pada Stack dalam memproses data!</label>
+                <textarea id="ans_queue_1" placeholder="Tuliskan hasil diskusi kelompok Anda di sini..."></textarea>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-header">Soal 2.2: Tracing Operasi Queue</div>
+            <p style="font-size: 13px;">Sebuah Queue antrean rumah sakit kosong diberi urutan proses berikut:</p>
+            <div class="simulation-box">
+                1. Enqueue("Pasien 101") &nbsp;&nbsp; 2. Enqueue("Pasien 102") &nbsp;&nbsp; 3. Dequeue() &nbsp;&nbsp; 4. Enqueue("Pasien 103") &nbsp;&nbsp; 5. Dequeue()
+            </div>
+            
+            <table class="trace-table">
+                <thead>
+                    <tr>
+                        <th>Langkah</th>
+                        <th>Operasi</th>
+                        <th>Kondisi Antrean (Depan &rarr; Belakang)</th>
+                        <th>Pasien Yang Dilayani (Dequeue)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Enqueue("Pasien 101")</td><td><input type="text" placeholder="[Pasien 101]"></td><td><input type="text" placeholder="-"></td></tr>
+                    <tr><td>2</td><td>Enqueue("Pasien 102")</td><td><input type="text" placeholder="[Pasien 101, Pasien 102]"></td><td><input type="text" placeholder="-"></td></tr>
+                    <tr><td>3</td><td>Dequeue()</td><td><input type="text" placeholder="..."></td><td><input type="text" placeholder="..."></td></tr>
+                    <tr><td>4</td><td>Enqueue("Pasien 103")</td><td><input type="text" placeholder="..."></td><td><input type="text" placeholder="..."></td></tr>
+                    <tr><td>5</td><td>Dequeue()</td><td><input type="text" placeholder="..."></td><td><input type="text" placeholder="..."></td></tr>
+                </tbody>
+            </table>
+
+            <div class="form-group" style="margin-top: 10px;">
+                <label>Kesimpulan Akhir Queue: Siapa pasien yang masih ada dalam antrean dan siapa pasien yang dilayani paling awal?</label>
+                <input type="text" id="ans_queue_final" placeholder="Jawaban Anda...">
+            </div>
+        </div>
+    </div>
+
+    <!-- Aktivitas 3: Analisis Studi Kasus -->
+    <div class="section-box">
+        <div class="section-title">BAGIAN V: ANALISIS STUDI KASUS DUNIA NYATA</div>
+        
+        <div class="question-card">
+            <div class="question-header">Studi Kasus 1: Aplikasi Pemutar Musik (Spotify/Apple Music)</div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;">
+                Aplikasi musik memiliki 2 fitur: 
+                (A) Fitur <strong>"Berikutnya / Up Next"</strong> (Daftar lagu yang akan diputar secara berurutan).
+                (B) Fitur <strong>"Tombol Back / Previously Played"</strong> (Riwayat lagu yang baru saja selesai didengar).
+            </p>
+            <div class="form-group">
+                <label>Analisislah fitur mana yang menerapkan Stack dan mana yang menerapkan Queue. Berikan alasan logis kelompok Anda!</label>
+                <textarea id="ans_case_1" rows="4" placeholder="Fitur Up Next menggunakan... karena... Fitur Back menggunakan... karena..."></textarea>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <div class="question-header">Studi Kasus 2: Fitur Navigation History pada Browser</div>
+            <div class="form-group">
+                <label>Saat Anda menekan tombol "Back" di web browser (seperti Chrome/Edge), halaman web sebelumnya yang terbuka. Mengapa struktur data Stack lebih tepat digunakan dibanding Queue untuk fungsi tombol "Back" tersebut?</label>
+                <textarea id="ans_case_2" rows="4" placeholder="Tuliskan analisis kelompok Anda..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Refleksi & Kesimpulan -->
+    <div class="section-box">
+        <div class="section-title">BAGIAN VI: REFLEKSI & KESIMPULAN KELOMPOK</div>
+        <div class="form-group">
+            <label>Rangkum perbedaan kunci antara Stack dan Queue dalam 2-3 kalimat ringkas!</label>
+            <textarea id="ans_summary" placeholder="Rangkuman kelompok..."></textarea>
+        </div>
+    </div>
+
+    <!-- Action Bar -->
+    <div class="action-bar">
+        <button class="btn" onclick="downloadPDF()">
+            ?? Download Hasil Pekerjaan (PDF)
+        </button>
+        <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
+            *Klik tombol di atas untuk mengunduh dokumen LKPD ini dalam bentuk PDF setelah selesai diisi.
+        </p>
+    </div>
+</div>
+
+<script>
+    function downloadPDF() {
+        // Simple confirmation & invoke print engine
+        const kelompok = document.getElementById('kelompok').value;
+        const a1 = document.getElementById('anggota1').value;
+        const a2 = document.getElementById('anggota2').value;
+
+        if (!kelompok || !a1 || !a2) {
+            alert('Mohon lengkapi dahulu Identitas Kelompok (Nama Kelompok, Anggota 1, dan Anggota 2) sebelum mendownload PDF!');
+            return;
+        }
+
+        window.print();
+    }
+</script>
+
+</body>
+</html>
