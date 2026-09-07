@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Komprehensif Perangkat Lunak Produktivitas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #2563eb;
+        }
+        .section-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-top: 4px solid #2563eb;
+        }
+        .table-header {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl text-blue-700 tracking-tight">ProSuite Guide</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#beranda" class="nav-link font-medium text-slate-600">Beranda</a>
+                    <a href="#word" class="nav-link font-medium text-slate-600">Pengolah Kata</a>
+                    <a href="#spreadsheet" class="nav-link font-medium text-slate-600">Spreadsheet</a>
+                    <a href="#presentasi" class="nav-link font-medium text-slate-600">Presentasi</a>
+                    <a href="#perbedaan" class="nav-link font-medium text-slate-600">Perbandingan</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-blue-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-slate-100 pb-4">
+            <a href="#beranda" class="block px-4 py-2 text-slate-600 hover:bg-slate-50">Beranda</a>
+            <a href="#word" class="block px-4 py-2 text-slate-600 hover:bg-slate-50">Pengolah Kata</a>
+            <a href="#spreadsheet" class="block px-4 py-2 text-slate-600 hover:bg-slate-50">Spreadsheet</a>
+            <a href="#presentasi" class="block px-4 py-2 text-slate-600 hover:bg-slate-50">Presentasi</a>
+            <a href="#perbedaan" class="block px-4 py-2 text-slate-600 hover:bg-slate-50">Perbandingan</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="beranda" class="pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
+            Panduan Komprehensif Perangkat Lunak Produktivitas
+        </h1>
+        <p class="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-8">
+            Analisis mendalam mengenai pengolah kata, spreadsheet, dan perangkat lunak pembuat slide. Pelajari definisi, fungsi, sejarah, dan optimalisasi penggunaannya di lingkungan Windows dan Android.
+        </p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+
+        <!-- WORD PROCESSOR SECTION -->
+        <section id="word" class="section-card scroll-mt-24" style="border-top-color: #3b82f6;">
+            <div class="flex items-center mb-6">
+                <svg class="w-8 h-8 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                <h2 class="text-3xl font-bold text-slate-800">Perangkat Lunak Pengolah Kata (Word Processor)</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700">Definisi & Penjelasan</h3>
+                    <p class="text-slate-600 leading-relaxed text-justify mb-4">
+                        Pengolah kata adalah perangkat lunak komputer (atau aplikasi seluler) yang dirancang khusus untuk memfasilitasi pembuatan, pengeditan, pemformatan, penyimpanan, dan pencetakan dokumen berbasis teks. Aplikasi ini menggantikan fungsi mesin tik tradisional dengan memberikan fleksibilitas tanpa batas dalam merevisi tulisan tanpa membuang kertas.
+                    </p>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700">Fungsi Utama</h3>
+                    <ul class="list-disc list-inside text-slate-600 space-y-1">
+                        <li>Pembuatan surat, laporan akademis, artikel, dan buku.</li>
+                        <li>Pemformatan teks tingkat lanjut (font, ukuran, warna, paragraf).</li>
+                        <li>Pemeriksaan ejaan dan tata bahasa otomatis (Spell Checker).</li>
+                        <li>Penyisipan elemen multimedia (gambar, tabel, grafik).</li>
+                        <li><em>Mail merge</em> (surat massal) dan manajemen referensi (sitasi).</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700">Sejarah Singkat</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Evolusi pengolah kata dimulai pada akhir 1960-an hingga 1970-an dengan mesin pengolah kata perangkat keras khusus dari IBM. Pada era PC (1980-an), <strong>WordStar</strong> menjadi standar industri awal, diikuti oleh <strong>WordPerfect</strong>. Dominasi bergeser pada tahun 1990-an saat Microsoft merilis antarmuka grafis (GUI) melalui <strong>Microsoft Word</strong> untuk Windows, yang merevolusi cara pengguna memformat dokumen secara visual (WYSIWYG - <em>What You See Is What You Get</em>).
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-blue-900 border-b border-blue-200 pb-2">Ekosistem: Windows vs Android</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-blue-800 flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 4.5A1.5 1.5 0 013.5 3h13A1.5 1.5 0 0118 4.5v11a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 15.5v-11zM10 13a1 1 0 100-2 1 1 0 000 2z"></path></svg> Platform Windows</h4>
+                        <p class="text-sm text-slate-700 mt-2 text-justify">
+                            Di Windows (misal: MS Word, LibreOffice Writer), aplikasi ini beroperasi pada tingkat fungsionalitas maksimal. Dilengkapi dengan <em>ribbon interface</em> yang sangat detail, dukungan makro, pemformatan margin presisi untuk cetak, dan pengelolaan dokumen tebal (ratusan halaman) tanpa <em>lag</em>. Cocok untuk kreasi dokumen intensif dan penulisan profesional.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-green-800 flex items-center"><svg class="w-5 h-5 mr-2 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> Platform Android</h4>
+                        <p class="text-sm text-slate-700 mt-2 text-justify">
+                            Di Android (misal: Google Docs, MS Word Mobile), aplikasi dirancang ulang untuk layar sentuh. Antarmuka disederhanakan dengan menyembunyikan alat kompleks. Fokus utamanya adalah mobilitas: membaca dokumen, <em>review</em> (memberi komentar), pengeditan teks ringan saat bepergian, pengetikan suara (<em>voice typing</em>), dan kolaborasi berbasis cloud <em>real-time</em>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SPREADSHEET SECTION -->
+        <section id="spreadsheet" class="section-card scroll-mt-24" style="border-top-color: #10b981;">
+            <div class="flex items-center mb-6">
+                <svg class="w-8 h-8 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                <h2 class="text-3xl font-bold text-slate-800">Perangkat Lunak Pengolah Angka (Spreadsheet)</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700">Definisi & Penjelasan</h3>
+                    <p class="text-slate-600 leading-relaxed text-justify mb-4">
+                        Spreadsheet adalah aplikasi yang mengorganisasi data dalam struktur tabel dua dimensi yang terdiri dari baris (diwakili angka) dan kolom (diwakili huruf). Titik perpotongan keduanya disebut "Sel" (<em>Cell</em>). Spreadsheet dirancang khusus untuk memanipulasi angka, melakukan kalkulasi otomatis, dan menganalisis kumpulan data besar secara logis dan matematis.
+                    </p>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700">Fungsi Utama</h3>
+                    <ul class="list-disc list-inside text-slate-600 space-y-1">
+                        <li>Kalkulasi otomatis menggunakan rumus (Formula) dan fungsi bawaan (Functions seperti SUM, VLOOKUP, IF).</li>
+                        <li>Pembuatan laporan keuangan, akuntansi, dan penganggaran (Budgeting).</li>
+                        <li>Visualisasi data melalui berbagai jenis grafik (Bar, Pie, Line, Scatter).</li>
+                        <li>Analisis data tingkat lanjut menggunakan <em>Pivot Table</em> dan skenario pemodelan.</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700">Sejarah Singkat</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Spreadsheet elektronik pertama didirikan oleh Dan Bricklin pada tahun 1979 dengan nama <strong>VisiCalc</strong> untuk Apple II. VisiCalc sering disebut sebagai "Killer App" (Aplikasi pembunuh) pertama yang membuat PC menjadi alat bisnis yang esensial. Di era IBM PC, <strong>Lotus 1-2-3</strong> mendominasi pasar. Sejak kemunculan sistem operasi Windows, <strong>Microsoft Excel</strong> mengambil alih pasar berkat antarmuka grafisnya yang intuitif dan masih menjadi standar industri hingga kini.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-green-900 border-b border-green-200 pb-2">Ekosistem: Windows vs Android</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-green-800 flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 4.5A1.5 1.5 0 013.5 3h13A1.5 1.5 0 0118 4.5v11a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 15.5v-11zM10 13a1 1 0 100-2 1 1 0 000 2z"></path></svg> Platform Windows</h4>
+                        <p class="text-sm text-slate-700 mt-2 text-justify">
+                            Versi Windows (Excel desktop) adalah raksasa pemrosesan data. Mampu menangani jutaan baris data, menjalankan pemrograman makro kompleks (VBA - Visual Basic for Applications), integrasi database eksternal (Power Query), dan pemodelan keuangan yang berat. Dibutuhkan <em>keyboard</em> fisik dan <em>mouse</em> untuk navigasi sel dengan presisi dan kecepatan tinggi.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-green-800 flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> Platform Android</h4>
+                        <p class="text-sm text-slate-700 mt-2 text-justify">
+                            Di Android (Google Sheets, Excel Mobile), layarnya membatasi kompleksitas. Sangat ideal untuk fungsi operasional lapangan: input data inventaris cepat menggunakan *form* bawaan, melihat <em>dashboard</em> laporan yang dibagikan dari kantor pusat, atau kalkulasi sederhana saat rapat. UI disesuaikan agar sel bisa disentuh jari tanpa salah ketik, dengan keyboard numerik yang otomatis muncul saat sel angka diklik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRESENTATION SECTION -->
+        <section id="presentasi" class="section-card scroll-mt-24" style="border-top-color: #f59e0b;">
+            <div class="flex items-center mb-6">
+                <svg class="w-8 h-8 text-amber-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                <h2 class="text-3xl font-bold text-slate-800">Perangkat Lunak Pembuat Slide (Presentation)</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700">Definisi & Penjelasan</h3>
+                    <p class="text-slate-600 leading-relaxed text-justify mb-4">
+                        Perangkat lunak presentasi adalah aplikasi yang digunakan untuk menyusun, merancang, dan menampilkan informasi dalam format halaman per halaman yang disebut "Slide". Tujuannya adalah untuk mendukung seorang pembicara dalam menyampaikan ide, ringkasan, atau data visual kepada audiens dalam sebuah pertemuan, seminar, atau aktivitas edukasi.
+                    </p>
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700">Fungsi Utama</h3>
+                    <ul class="list-disc list-inside text-slate-600 space-y-1">
+                        <li>Membuat <em>slide deck</em> yang berisi ringkasan poin-poin (bullet points).</li>
+                        <li>Mengintegrasikan teks dengan elemen visual kuat (gambar, video, infografis).</li>
+                        <li>Menambahkan efek animasi pada elemen (Entrance, Exit) dan transisi antar slide untuk menjaga atensi audiens.</li>
+                        <li>Menyediakan "Presenter View" (catatan pembicara tersembunyi dari audiens).</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-2 text-slate-700">Sejarah Singkat</h3>
+                    <p class="text-slate-600 leading-relaxed text-sm">
+                        Sebelum era digital, presentasi menggunakan proyektor fisik dan lembar transparansi cetak (OHP) atau proyektor slide (Carousel). Perangkat lunak presentasi awal seperti <strong>VCN ExecuVision</strong> (1984) memungkinkan manipulasi gambar untuk layar. Namun revolusi sejati datang pada 1987 ketika Forethought Inc. merilis <strong>Presenter</strong> untuk komputer Mac, yang kemudian dibeli oleh Microsoft dan diubah namanya menjadi <strong>PowerPoint</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-amber-50 p-6 rounded-lg">
+                <h3 class="text-xl font-semibold mb-4 text-amber-900 border-b border-amber-200 pb-2">Ekosistem: Windows vs Android</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-amber-800 flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M2 4.5A1.5 1.5 0 013.5 3h13A1.5 1.5 0 0118 4.5v11a1.5 1.5 0 01-1.5 1.5h-13A1.5 1.5 0 012 15.5v-11zM10 13a1 1 0 100-2 1 1 0 000 2z"></path></svg> Platform Windows</h4>
+                        <p class="text-sm text-slate-700 mt-2 text-justify">
+                            Di lingkungan desktop Windows (PowerPoint), kreator memiliki kanvas tanpa batas. Memungkinkan desain grafis khusus, pengaturan waktu animasi mikro-detik (<em>timing</em>), penyisipan aset video 4K, dan penyesuaian tata letak master (<em>Slide Master</em>). Saat tersambung ke proyektor, PC memberikan layar ganda sempurna untuk *Presenter View*.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-amber-800 flex items-center"><svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zm3 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg> Platform Android</h4>
+                        <p class="text-sm text-slate-700 mt-2 text-justify">
+                            Merancang slide dari nol di Android cukup menantang secara visual, sehingga lebih sering digunakan untuk penyesuaian menit terakhir (memperbaiki *typo* sebelum tampil). Namun, Android bersinar sebagai <strong>Alat Eksekusi</strong>. Menggunakan fitur "Cast" atau <em>Miracast</em>, ponsel Android bisa memproyeksikan slide secara nirkabel ke Smart TV, mengubah *smartphone* Anda menjadi <em>laser pointer</em> dan *clicker* jarak jauh.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPARISON SECTION -->
+        <section id="perbedaan" class="section-card scroll-mt-24 border-t-4" style="border-top-color: #64748b;">
+            <div class="flex items-center mb-6">
+                <svg class="w-8 h-8 text-slate-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                <h2 class="text-3xl font-bold text-slate-800">Tabel Perbandingan Utama</h2>
+            </div>
+            
+            <p class="mb-4 text-slate-600">Berikut adalah ringkasan perbedaan fundamental dari ketiga jenis perangkat lunak produktivitas ini:</p>
+            
+            <div class="overflow-x-auto rounded-lg shadow border border-slate-200">
+                <table class="min-w-full divide-y divide-slate-200">
+                    <thead class="table-header">
+                        <tr>
+                            <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-700 uppercase tracking-wider">Aspek Perbandingan</th>
+                            <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-blue-700 uppercase tracking-wider">Pengolah Kata</th>
+                            <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-green-700 uppercase tracking-wider">Spreadsheet</th>
+                            <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-amber-700 uppercase tracking-wider">Presentasi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-slate-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Fokus & Tujuan Utama</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Penyusunan alur teks dan narasi struktural.</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Analisis data terstruktur, kalkulasi & logika matematis.</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Komunikasi visual dan ringkasan informasi untuk audiens.</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Unit Basis / Kanvas</td>
+                            <td class="px-6 py-4 text-sm text-slate-600"><strong>Halaman</strong> (Page) dengan margin tetap.</td>
+                            <td class="px-6 py-4 text-sm text-slate-600"><strong>Sel</strong> (Cell) dalam bentuk grid tak terbatas.</td>
+                            <td class="px-6 py-4 text-sm text-slate-600"><strong>Slide</strong> (Kanvas presentasi berdimensi layar).</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Orientasi Membaca</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Linear (dibaca dari atas ke bawah kalimat per kalimat).</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Spasial (mencari relasi silang antar data).</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Poin Visual (Skimming, membaca cepat sekilas).</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Hasil Output Ideal</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Dokumen Cetak, PDF, E-Book, Surat Perjanjian.</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Laporan Keuangan, Dashboard Data, Grafik Analisis.</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Tayangan proyektor, Video pemaparan, PDF Pitch Deck.</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-slate-900">Aplikasi Populer (Standar)</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Microsoft Word, Google Docs, Apple Pages.</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Microsoft Excel, Google Sheets, Apple Numbers.</td>
+                            <td class="px-6 py-4 text-sm text-slate-600">Microsoft PowerPoint, Google Slides, Apple Keynote.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-300 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2026 Panduan Produktivitas Digital - SIPP (Sistem Informasi Perangkat Perkantoran).</p>
+            <p class="mt-2 text-slate-500">Materi edukasional ini dirancang untuk mendemonstrasikan kapabilitas dan perbedaan aplikasi produktivitas utama lintas platform.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu and Interactions -->
+    <script>
+        // Toggle mobile menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const menuLinks = menu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
